@@ -17,7 +17,7 @@ if [ ! -d "$ANDROID_NDK_HOME" ]; then
     mkdir -p $ANDROID_NDK_HOME
     pushd $HOME/.android
     wget -q http://dl.google.com/android/repository/android-ndk-r14b-linux-${ARCH}.zip
-    unzip -q android-ndk-r12b-linux-${ARCH}.zip
+    unzip -q android-ndk-r14b-linux-${ARCH}.zip
     popd
 fi
 
