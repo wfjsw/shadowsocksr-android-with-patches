@@ -38,10 +38,17 @@ install:
     - ./travis-ci/setup.sh
     - export NDK_CCACHE=ccache
     - export ARCH=`uname -m`
-    - export ANDROID_NDK_HOME=$HOME/.android/android-ndk-r12b
+    - export ANDROID_NDK_HOME=$HOME/.android/android-ndk-r14b
     - export ANDROID_HOME=$HOME/.android/android-sdk-linux
     - export PATH=${ANDROID_NDK_HOME}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}
     - cp local.properties.travis local.properties
 
 script:
     - sbt native-build android:package-release
+
+deploy:
+  provider: releases 
+  file: "/home/travis/build/wfjsw/shadowsocksr-android/target/android/output/shadowsocksr-release.apk"
+  skip_cleanup: true
+  on:
+    branch: master
